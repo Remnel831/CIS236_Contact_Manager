@@ -1,8 +1,31 @@
 ﻿@{
-    ViewData["Title"] = "Home Page";
+    ViewData["Title"] = "Contact Manager";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-</div>
+<h2>Contact Manager</h2>
+
+<a asp-controller="Contact" asp-action="Add">Add Contact</a>
+<table class="table table-bordered table-striped">
+    <thead>
+        <tr>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Phone</th>
+            <th>Email</th>
+            <th>Category</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var contact in Contact)
+        {
+            <tr>
+                <td><a asp-controller="Contact" asp-action="Details" asp-route-id="@contact.contactID" asp-route-slug="@contact.Slug">@contact.firstName</a></td>
+                <td><a asp-controller="Contact" asp-action="Details" asp-route-id="@contact.contactID" asp-route-slug="@contact.Slug">@contact.lastName</a></td>
+
+                <td>@contact.phoneNumber</td>
+                <td>@contact.emailAddress</td>
+                <td>@contact.categoryName</td>
+            </tr>
+        }
+    </tbody>
+</table>
