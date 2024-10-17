@@ -6,12 +6,6 @@ namespace CIS236_Contact_Manager.Controllers
 {
 	public class ContactController : Controller
 	{
-		private readonly ILogger<HomeController> _logger;
-
-		public ContactController(ILogger<HomeController> logger)
-		{
-			_logger = logger;
-		}
 		private ContactContext context { get; set; }
 
 		public ContactController(ContactContext ctx)
@@ -19,12 +13,12 @@ namespace CIS236_Contact_Manager.Controllers
 			context = ctx;
 		}
 
+        [HttpGet]
+        public IActionResult Details(int id)
+        {
+            var contact = context.Contacts.Find(id);
+            return View(contact);
+        }
 
-		public IActionResult Index()
-		{
-			var contacts = context.Contacts.OrderBy(m => m.FirstName).ToList();
-			return View(contacts);
-		}
-
-	}
+    }
 }

@@ -1,7 +1,5 @@
 html, body, .container, td, th, header, nav, a, a.nav-link.text-dark {
   font-size: 14px;
-  background-color:black;
-  color: white!important;
 }
 
 @media (min-width: 768px) {
@@ -21,4 +19,8 @@ html {
 
 body {
   margin-bottom: 60px;
+}
+h1 {
+    font-weight: bold;
+    font-size: 3.5rem;
 }
