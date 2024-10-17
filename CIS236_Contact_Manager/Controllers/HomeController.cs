@@ -1,32 +1,26 @@
 using System.Diagnostics;
 using CIS236_Contact_Manager.Models;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 namespace CIS236_Contact_Manager.Controllers
 {
 	public class HomeController : Controller
 	{
-		private readonly ILogger<HomeController> _logger;
+	
+		private ContactContext context { get; set; }
 
-		public HomeController(ILogger<HomeController> logger)
+		public HomeController(ContactContext ctx)
 		{
-			_logger = logger;
+			context = ctx;
 		}
+
 
 		public IActionResult Index()
 		{
-			return View();
+			var contacts = context.Contacts.Include(m => m.Category).OrderBy(m => m.LastName).ToList();
+			return View(contacts);
 		}
 
-		public IActionResult Privacy()
-		{
-			return View();
-		}
-
-		[ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
-		public IActionResult Error()
-		{
-			return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
-		}
 	}
 }
