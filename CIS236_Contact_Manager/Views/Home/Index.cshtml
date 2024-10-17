@@ -1,4 +1,5 @@
-﻿@{
+﻿@model List<Contact>
+@{
     ViewData["Title"] = "Contact Manager";
 }
 
@@ -16,16 +17,22 @@
         </tr>
     </thead>
     <tbody>
-        @foreach (var contact in Contact)
-        {
-            <tr>
-                <td><a asp-controller="Contact" asp-action="Details" asp-route-id="@contact.contactID" asp-route-slug="@contact.Slug">@contact.firstName</a></td>
-                <td><a asp-controller="Contact" asp-action="Details" asp-route-id="@contact.contactID" asp-route-slug="@contact.Slug">@contact.lastName</a></td>
 
-                <td>@contact.phoneNumber</td>
-                <td>@contact.emailAddress</td>
-                <td>@contact.categoryName</td>
-            </tr>
-        }
+        @*
+            The model passed in needs to get an array of contacts passed in
+            Then we need to format it to build the table w/ those.
+        *@
+
+         @foreach (var contact in Model)
+         {
+             <tr>
+                <td><a asp-controller="Contact" asp-action="Details" asp-route-id="@contact.ContactId" asp-route-slug="@contact.Slug">@contact.FirstName</a></td>
+                <td><a asp-controller="Contact" asp-action="Details" asp-route-id="@contact.ContactId" asp-route-slug="@contact.Slug">@contact.LastName</a></td>
+
+                 <td>@contact.PhoneNumber</td>
+                 <td>@contact.EmailAddress</td>
+                 <td>@contact.Category.Name</td>
+             </tr>
+         }
     </tbody>
 </table>
