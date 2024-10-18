@@ -17,6 +17,7 @@ namespace CIS236_Contact_Manager.Controllers
         public IActionResult Details(int id)
         {
             var contact = context.Contacts.Find(id);
+			ViewBag.Category = context.Categories.OrderBy(c => c.Name).ToList();
             return View(contact);
         }
 
