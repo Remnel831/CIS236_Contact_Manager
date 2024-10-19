@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using Microsoft.AspNetCore.Mvc.ModelBinding.Validation;
 
 namespace CIS236_Contact_Manager.Models
 
@@ -11,9 +12,10 @@ namespace CIS236_Contact_Manager.Models
         public string PhoneNumber { get; set; }
         public string EmailAddress { get; set; }
 
-        [Required(ErrorMessage = "Please enter a Category.")]
-        public int CategoryID { get; set; }
-        public Category Category { get; set; }
+        [Required(ErrorMessage = "Please enter a Category.")]   
+        public int CategoryId { get; set; }
+
+        public Category? Category { get; set; }
 
         public string Organization { get; set; }
         public DateTime DateAdded { get; set; }

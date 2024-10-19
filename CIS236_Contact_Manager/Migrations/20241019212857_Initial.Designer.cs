@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace CIS236_Contact_Manager.Migrations
 {
     [DbContext(typeof(ContactContext))]
-    [Migration("20241017052947_Initial")]
+    [Migration("20241019212857_Initial")]
     partial class Initial
     {
         /// <inheritdoc />
@@ -56,6 +56,11 @@ namespace CIS236_Contact_Manager.Migrations
                         {
                             CategoryId = 3,
                             Name = "Work"
+                        },
+                        new
+                        {
+                            CategoryId = 4,
+                            Name = "None"
                         });
                 });
 
@@ -67,7 +72,7 @@ namespace CIS236_Contact_Manager.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ContactId"));
 
-                    b.Property<int>("CategoryID")
+                    b.Property<int>("CategoryId")
                         .HasColumnType("int");
 
                     b.Property<DateTime>("DateAdded")
@@ -95,7 +100,7 @@ namespace CIS236_Contact_Manager.Migrations
 
                     b.HasKey("ContactId");
 
-                    b.HasIndex("CategoryID");
+                    b.HasIndex("CategoryId");
 
                     b.ToTable("Contacts");
 
@@ -103,8 +108,8 @@ namespace CIS236_Contact_Manager.Migrations
                         new
                         {
                             ContactId = 1,
-                            CategoryID = 1,
-                            DateAdded = new DateTime(2024, 10, 16, 5, 29, 46, 870, DateTimeKind.Utc).AddTicks(2956),
+                            CategoryId = 1,
+                            DateAdded = new DateTime(2024, 10, 18, 21, 28, 57, 618, DateTimeKind.Utc).AddTicks(9626),
                             EmailAddress = "Adam.First@elo.com",
                             FirstName = "Adam",
                             LastName = "First",
@@ -114,8 +119,8 @@ namespace CIS236_Contact_Manager.Migrations
                         new
                         {
                             ContactId = 2,
-                            CategoryID = 1,
-                            DateAdded = new DateTime(2024, 10, 15, 5, 29, 46, 870, DateTimeKind.Utc).AddTicks(2968),
+                            CategoryId = 1,
+                            DateAdded = new DateTime(2024, 10, 17, 21, 28, 57, 618, DateTimeKind.Utc).AddTicks(9639),
                             EmailAddress = "Eve.First@elo.com",
                             FirstName = "Eve",
                             LastName = "First",
@@ -125,8 +130,8 @@ namespace CIS236_Contact_Manager.Migrations
                         new
                         {
                             ContactId = 3,
-                            CategoryID = 1,
-                            DateAdded = new DateTime(2024, 10, 14, 5, 29, 46, 870, DateTimeKind.Utc).AddTicks(2970),
+                            CategoryId = 1,
+                            DateAdded = new DateTime(2024, 10, 16, 21, 28, 57, 618, DateTimeKind.Utc).AddTicks(9641),
                             EmailAddress = "Draco.Light@ole.com",
                             FirstName = "Draco",
                             LastName = "Light",
@@ -139,7 +144,7 @@ namespace CIS236_Contact_Manager.Migrations
                 {
                     b.HasOne("CIS236_Contact_Manager.Models.Category", "Category")
                         .WithMany()
-                        .HasForeignKey("CategoryID")
+                        .HasForeignKey("CategoryId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 

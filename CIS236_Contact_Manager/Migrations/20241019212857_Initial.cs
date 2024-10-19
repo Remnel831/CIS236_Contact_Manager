@@ -36,7 +36,7 @@ namespace CIS236_Contact_Manager.Migrations
                     LastName = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     PhoneNumber = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     EmailAddress = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    CategoryID = table.Column<int>(type: "int", nullable: false),
+                    CategoryId = table.Column<int>(type: "int", nullable: false),
                     Organization = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     DateAdded = table.Column<DateTime>(type: "datetime2", nullable: false)
                 },
@@ -44,8 +44,8 @@ namespace CIS236_Contact_Manager.Migrations
                 {
                     table.PrimaryKey("PK_Contacts", x => x.ContactId);
                     table.ForeignKey(
-                        name: "FK_Contacts_Categories_CategoryID",
-                        column: x => x.CategoryID,
+                        name: "FK_Contacts_Categories_CategoryId",
+                        column: x => x.CategoryId,
                         principalTable: "Categories",
                         principalColumn: "CategoryId",
                         onDelete: ReferentialAction.Cascade);
@@ -58,23 +58,24 @@ namespace CIS236_Contact_Manager.Migrations
                 {
                     { 1, "Family" },
                     { 2, "Friend" },
-                    { 3, "Work" }
+                    { 3, "Work" },
+                    { 4, "None" }
                 });
 
             migrationBuilder.InsertData(
                 table: "Contacts",
-                columns: new[] { "ContactId", "CategoryID", "DateAdded", "EmailAddress", "FirstName", "LastName", "Organization", "PhoneNumber" },
+                columns: new[] { "ContactId", "CategoryId", "DateAdded", "EmailAddress", "FirstName", "LastName", "Organization", "PhoneNumber" },
                 values: new object[,]
                 {
-                    { 1, 1, new DateTime(2024, 10, 16, 5, 29, 46, 870, DateTimeKind.Utc).AddTicks(2956), "Adam.First@elo.com", "Adam", "First", "Sum Org", "555-123-3212" },
-                    { 2, 1, new DateTime(2024, 10, 15, 5, 29, 46, 870, DateTimeKind.Utc).AddTicks(2968), "Eve.First@elo.com", "Eve", "First", "Sum Org", "555-321-3212" },
-                    { 3, 1, new DateTime(2024, 10, 14, 5, 29, 46, 870, DateTimeKind.Utc).AddTicks(2970), "Draco.Light@ole.com", "Draco", "Light", "Top LLC", "555-123-3212" }
+                    { 1, 1, new DateTime(2024, 10, 18, 21, 28, 57, 618, DateTimeKind.Utc).AddTicks(9626), "Adam.First@elo.com", "Adam", "First", "Sum Org", "555-123-3212" },
+                    { 2, 1, new DateTime(2024, 10, 17, 21, 28, 57, 618, DateTimeKind.Utc).AddTicks(9639), "Eve.First@elo.com", "Eve", "First", "Sum Org", "555-321-3212" },
+                    { 3, 1, new DateTime(2024, 10, 16, 21, 28, 57, 618, DateTimeKind.Utc).AddTicks(9641), "Draco.Light@ole.com", "Draco", "Light", "Top LLC", "555-123-3212" }
                 });
 
             migrationBuilder.CreateIndex(
-                name: "IX_Contacts_CategoryID",
+                name: "IX_Contacts_CategoryId",
                 table: "Contacts",
-                column: "CategoryID");
+                column: "CategoryId");
         }
 
         /// <inheritdoc />

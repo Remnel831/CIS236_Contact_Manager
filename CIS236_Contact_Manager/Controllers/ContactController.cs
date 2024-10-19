@@ -35,6 +35,13 @@ namespace CIS236_Contact_Manager.Controllers
 			context.SaveChanges();
 			return RedirectToAction("Index", "Home");
 		}
+		[HttpGet]
+		public IActionResult Add()
+		{
+			ViewBag.Action = "Add";
+			ViewBag.Categories = context.Categories.OrderBy(g => g.Name).ToList();
+			return View("Edit", new Contact());
+		}
 
 		[HttpGet]
 		public IActionResult Edit(int id)
@@ -48,11 +55,15 @@ namespace CIS236_Contact_Manager.Controllers
 		[HttpPost]
 		public IActionResult Edit(Contact contact)
 		{
+			ViewBag.Categories = context.Categories.OrderBy(c => c.Name).ToList();
+
 			if (ModelState.IsValid)
 			{
 				if (contact.ContactId == 0)
 				{
+					contact.DateAdded = DateTime.Now;
 					context.Contacts.Add(contact);
+
 				}
 
 				else
@@ -62,7 +73,7 @@ namespace CIS236_Contact_Manager.Controllers
 				}
 
 				context.SaveChanges();
-				return View("Index");
+				return RedirectToAction("Index", "Home");
 			}
 
 			else

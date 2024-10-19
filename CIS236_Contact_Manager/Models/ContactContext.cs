@@ -16,8 +16,11 @@ namespace CIS236_Contact_Manager.Models
             modelBuilder.Entity<Category>().HasData(
                  new Category { CategoryId = 1, Name = "Family" },
                  new Category { CategoryId = 2, Name = "Friend" },
-                 new Category { CategoryId = 3, Name = "Work" }
-             );
+                 new Category { CategoryId = 3, Name = "Work" },
+				 new Category { CategoryId = 4, Name = "None" }
+
+
+			 );
 
 
             modelBuilder.Entity<Contact>().HasData(
@@ -28,7 +31,7 @@ namespace CIS236_Contact_Manager.Models
 					LastName = "First",
 					PhoneNumber = "555-123-3212",
 					EmailAddress = "Adam.First@elo.com",
-					CategoryID = 1,
+					CategoryId = 1,
 					Organization = "Sum Org",
 					DateAdded = DateTime.UtcNow.AddDays(-1)
 				},
@@ -39,7 +42,7 @@ namespace CIS236_Contact_Manager.Models
 					LastName = "First",
 					PhoneNumber = "555-321-3212",
 					EmailAddress = "Eve.First@elo.com",
-					CategoryID = 1,
+					CategoryId = 1,
 					Organization = "Sum Org",
 					DateAdded = DateTime.UtcNow.AddDays(-2)
 				},
@@ -50,7 +53,7 @@ namespace CIS236_Contact_Manager.Models
 					LastName = "Light",
 					PhoneNumber = "555-123-3212",
 					EmailAddress = "Draco.Light@ole.com",
-					CategoryID = 1,
+					CategoryId = 1,
 					Organization = "Top LLC",
 					DateAdded = DateTime.UtcNow.AddDays(-3)
 				}
