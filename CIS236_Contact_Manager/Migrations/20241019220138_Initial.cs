@@ -37,7 +37,7 @@ namespace CIS236_Contact_Manager.Migrations
                     PhoneNumber = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     EmailAddress = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     CategoryId = table.Column<int>(type: "int", nullable: false),
-                    Organization = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Organization = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     DateAdded = table.Column<DateTime>(type: "datetime2", nullable: false)
                 },
                 constraints: table =>
@@ -67,9 +67,9 @@ namespace CIS236_Contact_Manager.Migrations
                 columns: new[] { "ContactId", "CategoryId", "DateAdded", "EmailAddress", "FirstName", "LastName", "Organization", "PhoneNumber" },
                 values: new object[,]
                 {
-                    { 1, 1, new DateTime(2024, 10, 18, 21, 28, 57, 618, DateTimeKind.Utc).AddTicks(9626), "Adam.First@elo.com", "Adam", "First", "Sum Org", "555-123-3212" },
-                    { 2, 1, new DateTime(2024, 10, 17, 21, 28, 57, 618, DateTimeKind.Utc).AddTicks(9639), "Eve.First@elo.com", "Eve", "First", "Sum Org", "555-321-3212" },
-                    { 3, 1, new DateTime(2024, 10, 16, 21, 28, 57, 618, DateTimeKind.Utc).AddTicks(9641), "Draco.Light@ole.com", "Draco", "Light", "Top LLC", "555-123-3212" }
+                    { 1, 1, new DateTime(2024, 10, 18, 22, 1, 38, 214, DateTimeKind.Utc).AddTicks(1699), "Adam.First@elo.com", "Adam", "First", "Sum Org", "555-123-3212" },
+                    { 2, 1, new DateTime(2024, 10, 17, 22, 1, 38, 214, DateTimeKind.Utc).AddTicks(1726), "Eve.First@elo.com", "Eve", "First", "Sum Org", "555-321-3212" },
+                    { 3, 1, new DateTime(2024, 10, 16, 22, 1, 38, 214, DateTimeKind.Utc).AddTicks(1728), "Draco.Light@ole.com", "Draco", "Light", "Top LLC", "555-123-3212" }
                 });
 
             migrationBuilder.CreateIndex(

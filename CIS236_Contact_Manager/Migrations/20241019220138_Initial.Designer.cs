@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace CIS236_Contact_Manager.Migrations
 {
     [DbContext(typeof(ContactContext))]
-    [Migration("20241019212857_Initial")]
+    [Migration("20241019220138_Initial")]
     partial class Initial
     {
         /// <inheritdoc />
@@ -91,7 +91,6 @@ namespace CIS236_Contact_Manager.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Organization")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("PhoneNumber")
@@ -109,7 +108,7 @@ namespace CIS236_Contact_Manager.Migrations
                         {
                             ContactId = 1,
                             CategoryId = 1,
-                            DateAdded = new DateTime(2024, 10, 18, 21, 28, 57, 618, DateTimeKind.Utc).AddTicks(9626),
+                            DateAdded = new DateTime(2024, 10, 18, 22, 1, 38, 214, DateTimeKind.Utc).AddTicks(1699),
                             EmailAddress = "Adam.First@elo.com",
                             FirstName = "Adam",
                             LastName = "First",
@@ -120,7 +119,7 @@ namespace CIS236_Contact_Manager.Migrations
                         {
                             ContactId = 2,
                             CategoryId = 1,
-                            DateAdded = new DateTime(2024, 10, 17, 21, 28, 57, 618, DateTimeKind.Utc).AddTicks(9639),
+                            DateAdded = new DateTime(2024, 10, 17, 22, 1, 38, 214, DateTimeKind.Utc).AddTicks(1726),
                             EmailAddress = "Eve.First@elo.com",
                             FirstName = "Eve",
                             LastName = "First",
@@ -131,7 +130,7 @@ namespace CIS236_Contact_Manager.Migrations
                         {
                             ContactId = 3,
                             CategoryId = 1,
-                            DateAdded = new DateTime(2024, 10, 16, 21, 28, 57, 618, DateTimeKind.Utc).AddTicks(9641),
+                            DateAdded = new DateTime(2024, 10, 16, 22, 1, 38, 214, DateTimeKind.Utc).AddTicks(1728),
                             EmailAddress = "Draco.Light@ole.com",
                             FirstName = "Draco",
                             LastName = "Light",

@@ -18,8 +18,6 @@ namespace CIS236_Contact_Manager.Models
                  new Category { CategoryId = 2, Name = "Friend" },
                  new Category { CategoryId = 3, Name = "Work" },
 				 new Category { CategoryId = 4, Name = "None" }
-
-
 			 );
 
 
