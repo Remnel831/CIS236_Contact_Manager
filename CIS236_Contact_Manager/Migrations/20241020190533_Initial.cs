@@ -67,9 +67,9 @@ namespace CIS236_Contact_Manager.Migrations
                 columns: new[] { "ContactId", "CategoryId", "DateAdded", "EmailAddress", "FirstName", "LastName", "Organization", "PhoneNumber" },
                 values: new object[,]
                 {
-                    { 1, 1, new DateTime(2024, 10, 18, 22, 1, 38, 214, DateTimeKind.Utc).AddTicks(1699), "Adam.First@elo.com", "Adam", "First", "Sum Org", "555-123-3212" },
-                    { 2, 1, new DateTime(2024, 10, 17, 22, 1, 38, 214, DateTimeKind.Utc).AddTicks(1726), "Eve.First@elo.com", "Eve", "First", "Sum Org", "555-321-3212" },
-                    { 3, 1, new DateTime(2024, 10, 16, 22, 1, 38, 214, DateTimeKind.Utc).AddTicks(1728), "Draco.Light@ole.com", "Draco", "Light", "Top LLC", "555-123-3212" }
+                    { 1, 1, new DateTime(2024, 10, 19, 19, 5, 33, 344, DateTimeKind.Utc).AddTicks(601), "Adam.Last@aol.com", "Adam", "Last", "Garden of Eden", "555-123-3212" },
+                    { 2, 1, new DateTime(2024, 10, 18, 19, 5, 33, 344, DateTimeKind.Utc).AddTicks(610), "Eve.Last@aol.com", "Eve", "Last", "Garden of Eden", "555-321-3212" },
+                    { 3, 3, new DateTime(2024, 10, 17, 19, 5, 33, 344, DateTimeKind.Utc).AddTicks(612), "Draco.Light@ole.com", "Draco", "Light", "Top LLC", "555-123-3212" }
                 });
 
             migrationBuilder.CreateIndex(

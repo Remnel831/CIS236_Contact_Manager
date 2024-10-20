@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace CIS236_Contact_Manager.Migrations
 {
     [DbContext(typeof(ContactContext))]
-    [Migration("20241019220138_Initial")]
+    [Migration("20241020190533_Initial")]
     partial class Initial
     {
         /// <inheritdoc />
@@ -108,29 +108,29 @@ namespace CIS236_Contact_Manager.Migrations
                         {
                             ContactId = 1,
                             CategoryId = 1,
-                            DateAdded = new DateTime(2024, 10, 18, 22, 1, 38, 214, DateTimeKind.Utc).AddTicks(1699),
-                            EmailAddress = "Adam.First@elo.com",
+                            DateAdded = new DateTime(2024, 10, 19, 19, 5, 33, 344, DateTimeKind.Utc).AddTicks(601),
+                            EmailAddress = "Adam.Last@aol.com",
                             FirstName = "Adam",
-                            LastName = "First",
-                            Organization = "Sum Org",
+                            LastName = "Last",
+                            Organization = "Garden of Eden",
                             PhoneNumber = "555-123-3212"
                         },
                         new
                         {
                             ContactId = 2,
                             CategoryId = 1,
-                            DateAdded = new DateTime(2024, 10, 17, 22, 1, 38, 214, DateTimeKind.Utc).AddTicks(1726),
-                            EmailAddress = "Eve.First@elo.com",
+                            DateAdded = new DateTime(2024, 10, 18, 19, 5, 33, 344, DateTimeKind.Utc).AddTicks(610),
+                            EmailAddress = "Eve.Last@aol.com",
                             FirstName = "Eve",
-                            LastName = "First",
-                            Organization = "Sum Org",
+                            LastName = "Last",
+                            Organization = "Garden of Eden",
                             PhoneNumber = "555-321-3212"
                         },
                         new
                         {
                             ContactId = 3,
-                            CategoryId = 1,
-                            DateAdded = new DateTime(2024, 10, 16, 22, 1, 38, 214, DateTimeKind.Utc).AddTicks(1728),
+                            CategoryId = 3,
+                            DateAdded = new DateTime(2024, 10, 17, 19, 5, 33, 344, DateTimeKind.Utc).AddTicks(612),
                             EmailAddress = "Draco.Light@ole.com",
                             FirstName = "Draco",
                             LastName = "Light",
