@@ -20,8 +20,7 @@ namespace CIS236_Contact_Manager.Models
 		[Required(ErrorMessage = "Email is required")]
 		public string EmailAddress { get; set; }
 
-        [Required(ErrorMessage = "Please enter a Category.")]
-		[Range(1, 3, ErrorMessage = "Please enter a Category.")]
+		[Range(1, 4, ErrorMessage = "Category must be selected.")]
 		public int CategoryId { get; set; }
 
         public Category? Category { get; set; }
