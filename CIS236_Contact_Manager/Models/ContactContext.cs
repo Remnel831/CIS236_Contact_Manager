@@ -40,7 +40,7 @@ namespace CIS236_Contact_Manager.Models
 					LastName = "First",
 					PhoneNumber = "555-321-3212",
 					EmailAddress = "Eve.First@elo.com",
-					CategoryId = 1,
+					CategoryId = 2,
 					Organization = "Sum Org",
 					DateAdded = DateTime.UtcNow.AddDays(-2)
 				},
@@ -51,7 +51,7 @@ namespace CIS236_Contact_Manager.Models
 					LastName = "Light",
 					PhoneNumber = "555-123-3212",
 					EmailAddress = "Draco.Light@ole.com",
-					CategoryId = 1,
+					CategoryId = 3,
 					Organization = "Top LLC",
 					DateAdded = DateTime.UtcNow.AddDays(-3)
 				}
