@@ -26,22 +26,22 @@ namespace CIS236_Contact_Manager.Models
 				{
 					ContactId = 1,
 					FirstName = "Adam",
-					LastName = "First",
+					LastName = "Last",
 					PhoneNumber = "555-123-3212",
-					EmailAddress = "Adam.First@elo.com",
+					EmailAddress = "Adam.Last@aol.com",
 					CategoryId = 1,
-					Organization = "Sum Org",
+					Organization = "Garden of Eden",
 					DateAdded = DateTime.UtcNow.AddDays(-1)
 				},
 				new Contact
 				{
 					ContactId = 2,
 					FirstName = "Eve",
-					LastName = "First",
+					LastName = "Last",
 					PhoneNumber = "555-321-3212",
-					EmailAddress = "Eve.First@elo.com",
-					CategoryId = 2,
-					Organization = "Sum Org",
+					EmailAddress = "Eve.Last@aol.com",
+					CategoryId = 1,
+					Organization = "Garden of Eden",
 					DateAdded = DateTime.UtcNow.AddDays(-2)
 				},
 				new Contact
