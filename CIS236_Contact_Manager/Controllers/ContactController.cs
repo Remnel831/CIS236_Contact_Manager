@@ -1,4 +1,5 @@
 using System.Diagnostics;
+using System.Text.RegularExpressions;
 using CIS236_Contact_Manager.Models;
 using Microsoft.AspNetCore.Mvc;
 
@@ -59,21 +60,23 @@ namespace CIS236_Contact_Manager.Controllers
 
 			if (ModelState.IsValid)
 			{
+				
 				if (contact.ContactId == 0)
 				{
 					contact.DateAdded = DateTime.Now;
 					context.Contacts.Add(contact);
+					context.SaveChanges();
+					return RedirectToAction("Index", "Home");
+
 
 				}
-
 				else
 				{
 					context.Contacts.Update(contact);
+					context.SaveChanges();
+					return RedirectToAction("Details", "Contact", new { id=contact.ContactId, slug=contact.Slug});
 
 				}
-
-				context.SaveChanges();
-				return RedirectToAction("Index", "Home");
 			}
 
 			else

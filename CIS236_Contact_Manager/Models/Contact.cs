@@ -7,17 +7,22 @@ namespace CIS236_Contact_Manager.Models
     public class Contact
     {
 		public int ContactId { get; set; }  // Primary key
+		[Required(ErrorMessage = "First name is required")]
 		public string FirstName { get; set; }
-        public string LastName { get; set; }
+		[Required(ErrorMessage = "Last name is required")]
+		public string LastName { get; set; }
 
-		[Required(ErrorMessage = "Phone number is required")]
-		[RegularExpression(@"^\d{10}$", ErrorMessage = "Phone number must be 10 digits")]
+		[Required(ErrorMessage = "Phone Number is required")]
+		[RegularExpression(@"^(?:\D*\d){10}\D*$", ErrorMessage = "Phone number must be 10 digits")]
 		public string PhoneNumber { get; set; }
 
-        public string EmailAddress { get; set; }
 
-        [Required(ErrorMessage = "Please enter a Category.")]   
-        public int CategoryId { get; set; }
+		[Required(ErrorMessage = "Email is required")]
+		public string EmailAddress { get; set; }
+
+        [Required(ErrorMessage = "Please enter a Category.")]
+		[Range(1, 3, ErrorMessage = "Please enter a Category.")]
+		public int CategoryId { get; set; }
 
         public Category? Category { get; set; }
 
@@ -25,7 +30,7 @@ namespace CIS236_Contact_Manager.Models
         public string? Organization { get; set; }
         public DateTime DateAdded { get; set; }
 
-
+        //read only slug
         public string Slug => FullName()?.Replace(' ', '-').ToLower();
 
         public string FullName()

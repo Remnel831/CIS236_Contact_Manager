@@ -8,48 +8,67 @@
 <h2>@ViewBag.Title</h2>
 <h3>@Model.FullName()</h3>
 
-<form asp-action="Edit" method="post">
-	<div asp-validation-summary="All"></div>
+<form asp-controller="Contact" asp-action="Edit" method="post">
+	<div asp-validation-summary="All" class="text-danger"></div>
 
+
+	@* Category *@
 	<div class="form-group">
 		<label asp-for="CategoryId">Category</label>
 		<select asp-for="CategoryId" class="form-control">
-			<option value="4">Select a category</option>
+			<option value="0">Select a category</option>
 			@foreach (Category category in ViewBag.Categories)
 			{
-				<option value="@category.CategoryId">@category.Name</option>
+				<option value="@category.CategoryId">@category.Name + " : " + @category.CategoryId </option>
 			}
 		</select>
 	</div>
-
+	@* First name *@
 	<div class="form-group">
 		<label asp-for="FirstName">First name</label>
 		<input asp-for="FirstName" class="form-control"/>
 	</div>
-
+	@* Last name *@
 	<div class="form-group">
 		<label asp-for="LastName">Last name</label>
 		<input asp-for="LastName" class="form-control"/>
 	</div>
-
+	@* Phone number *@
 	<div class="form-group">
 		<label asp-for="PhoneNumber">Phone</label>
 		<input asp-for="PhoneNumber" class="form-control" />
 	</div>
-
+	@* Email address *@
 	<div class="form-group">
 		<label asp-for="EmailAddress">Email address</label>
 		<input asp-for="EmailAddress" class="form-control" />
 	</div>
-
+	@* Organization *@
 	<div class="form-group">
 		<label asp-for="Organization">Organization (Optional)</label>
 		<input asp-for="Organization" class="form-control"/>
 	</div>
+	@* Date*@
+	@{
+		var dateValue = ViewBag.Action == "Add" ? DateTime.Now.ToString() : Model.DateAdded.ToString();
+	}
+	<input type="hidden" asp-for="DateAdded" value="@dateValue" />
 
-	<div class="form-group">
-		<input type="hidden" asp-for="ContactId"/>
-		<button type="submit" class="btn btn-primary">@ViewBag.Action</button>
+	@* ContactID *@
+	<input type="hidden" asp-for="ContactId"/>
+
+	
+	@* Action button *@
+	<button type="submit" class="btn btn-primary">@ViewBag.Action</button>
+
+	@* Cancel button *@
+	@if (ViewBag.Action == "Add")
+	{
 		<a asp-controller="Home" asp-action="Index" class="btn btn-secondary">Cancel</a>
-	</div>
+	}
+	else
+	{
+		<a asp-controller="Contact" asp-action="Details" asp-route-id="@Model.ContactId" asp-route-slug="@Model.Slug" class="btn btn-secondary">Cancel</a>
+	}
+	
 </form>
